@@ -1,0 +1,10 @@
+# Node.js
+node_modules/
+
+# Archivos generados durante la ejecución
+*.log
+*.pid
+*.lock
+
+# Archivo de configuración de entorno
+.env

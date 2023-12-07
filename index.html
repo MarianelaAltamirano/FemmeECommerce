@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FemmeECommerce</title>
+    <link rel="stylesheet" href="./css/styles.css"> <!-- Conectar con CSS -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'> <!-- Iconos de caja (Box icons) -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link rel="icon" type="image/x-icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+    <!-- Barra de Navegación -->
+    <header>
+        <div class="nav contenedor">
+            <a href="#" class="logo">FemmeECommerce</a>
+            <div class="carrito">
+                <h2 class="carrito-titulo">Tu carrito</h2>
+                <div class="carrito-contenedor">
+                    <!-- Contenido del carrito... -->
+                </div>
+                <div class="total">
+                    <div class="total-titulo">Total</div>
+                    <div class="total-precio">$0</div>
+                </div>
+                <button type="button" class="btn-vaciar-carrito" id="vaciar-carrito">
+                    <i class='bx bx-trash'></i> Vaciar Carrito
+                </button>
+                <button type="button" class="btn-comprar">Pagar Ahora</button>
+                <i class='bx bx-x' id="cerrar-carrito"></i>
+            </div>
+            <i class='bx bx-shopping-bag' id="carrito-icono" data-quantity="0"></i>
+        </div>
+    </header>
+
+    <!-- Sección de Productos -->
+    <section class="tienda contenedor">
+        <h2 class="seccion-titulo">Colección Femenina</h2>
+        <div class="contenido-tienda" id="productos-container">
+        </div>
+    </section>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./js/main.js"></script>
+
+
+</body>
+</html>

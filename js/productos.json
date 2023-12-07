@@ -1,0 +1,52 @@
+{
+    "productos": [
+        {
+            "id": 1,
+            "nombre": "Elegancia Esencial",
+            "imagen": "./assets/img/01.jpg",
+            "precio": 10000
+        },
+        {
+            "id": 2,
+            "nombre": "Estilo Harmonía",
+            "imagen": "./assets/img/02.jpg",
+            "precio": 15000
+        },
+        {
+            "id": 3,
+            "nombre": "Chic Coordinado",
+            "imagen": "./assets/img/03.jpg",
+            "precio": 12000
+        },
+        {
+            "id": 4,
+            "nombre": "Glamour Fusionado",
+            "imagen": "./assets/img/04.jpg",
+            "precio": 16000
+        },
+        {
+            "id": 5,
+            "nombre": "Euforia de Estilo",
+            "imagen": "./assets/img/05.jpg",
+            "precio": 23000
+        },
+        {
+            "id": 6,
+            "nombre": "Diva Dúo",
+            "imagen": "./assets/img/06.jpg",
+            "precio": 23000
+        },
+        {
+            "id": 7,
+            "nombre": "Encanto en Par",
+            "imagen": "./assets/img/07.jpg",
+            "precio": 23000
+        },
+        {
+            "id": 8,
+            "nombre": "Conjunto Vanguardia",
+            "imagen": "./assets/img/08.jpg",
+            "precio": 22000
+        }
+    ]
+}

@@ -1,0 +1,442 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500;900&display=swap'); /* Google Fonts para la tipografía */
+
+*{/* Estilos por defecto */  
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-padding-top: 2rem;
+    scroll-behavior: smooth;
+    list-style: none;
+    text-decoration: none;
+}
+
+
+/*Variables definidas*/
+:root {
+    --bg-color: #fff; /* Color de fondo principal */
+    --container-color: #1e1e2a; /* Color del contenedor */
+    --text-color: #02ac70; /* Color del texto */
+    --main-color: #fd4646; /* Color de acento principal */
+}
+
+
+img {
+    width: 100%;
+}
+
+body {
+    color: var(--bg-color); 
+    background-color: var(--container-color) ;
+}
+
+section{
+    padding: 4rem 0 3rem;
+}
+
+.contendor{
+    max-width: 1068px;
+    margin: auto ;
+    width: 100%;
+}
+
+
+/* Encabezado */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--container-color);
+    box-shadow: 0 1px 4px hsla(0, 0%, 98%, 0.1);
+    z-index: 100;
+}
+
+.nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 20px 0;
+}
+
+.logo{
+    font-size: 1.1rem;
+    color: var(--bg-color);
+    font-weight: 600;
+}
+
+#carrito-icono{
+    position: relative;
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+#carrito-icono[data-quantity="0"]::after {
+    contain: '';
+}
+#carrito-icono[data-quantity]::after{
+    content: attr(data-quantity);
+    position: absolute;
+    top: 0;
+    right: -12px;
+    width: 20px;
+    height: 20px ;
+    background-color: var(--text-color);
+    border-radius: 50%;
+    color: white;
+    font-size: 12px;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Carrito de compra */
+.carrito {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 360px;
+    max-height: 80vh; 
+    padding: 20px;
+    background-color: var(--container-color);
+    box-shadow: -2px 0 4px hsla(0, 4%, 15% / 10%);
+    transition: 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+    overflow-y: auto;
+}
+
+.carrito.active {
+    right: 0;
+    transition: 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.carrito-contenedor {
+    max-height: 100%; 
+    overflow-y: auto; 
+}
+
+.carrito-titulo{
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 2rem;
+}
+
+.total {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1rem; 
+    border-top: 1px solid var(--text-color);
+}
+.total-titulo{
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-top: 1rem;
+}
+.total-precio{
+    font-size: 1.075rem;
+    margin: 1rem 0 0 0.7rem;
+}
+.btn-comprar{
+display: flex;
+justify-content: center;
+margin: 1.5rem auto 0 auto;
+padding: 12px 20px;
+text-align: center;
+border-radius: 2rem;
+background-color: var(--text-color);
+color: var(--bg-color);
+font-size: 1rem;
+font-style: italic;
+font-weight: 500;
+cursor: pointer;
+border-color: var(--text-color); 
+}
+#cerrar-carrito{
+    position: absolute;
+    top: 1rem;
+    right: 0.8rem;
+    font-size: 2rem;
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+.carrito-caja {
+    display: grid;
+    grid-template-columns: 32% 50% 18%;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+.carrito-imagen{
+    width: 100%;
+    height: 100px;
+    object-fit: contain;
+    object-position: center;
+    padding: 10px;
+}
+.detalle-caja{
+    display: grid;
+    row-gap: 0.5rem ;
+}
+
+.carrito-producto-titulo{
+    font-size: 1rem;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.carrito-precio{
+    font-weight: 500;
+    
+}
+
+.carrito-cantidad{
+    border: 1px solid var(--text-color);
+    outline-color: var(--main-color);
+    width: 2.8rem;
+    text-align: center;
+    font-size: 1rem;
+    border-radius: 4px;
+}
+.carrito-remover{
+    font-size: 24px;
+    color: var(--main-color);
+    cursor: pointer;
+}
+
+/*Vaciar carrito*/
+.botones-carrito {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1.5rem;
+}
+
+.btn-comprar,
+.btn-vaciar-carrito {
+    width: 100%;
+    margin-top: 0.5rem;
+    padding: 12px 20px;
+    border-radius: 2rem;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-comprar {
+    background-color: var(--text-color);
+    color: var(--bg-color);
+}
+
+.btn-vaciar-carrito {
+    background-color: #d9534f;
+    color: #fff;
+}
+
+.btn-comprar:hover,
+.btn-vaciar-carrito:hover {
+    background-color: darken(var(--text-color), 10%);
+}
+
+.seccion-titulo{
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 1.8rem;
+}
+
+.tienda{
+    margin-top: 2rem;
+}
+
+.contenido-tienda{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, auto));
+    gap: 1.5rem;
+    margin-left: 10rem;
+    margin-right: 10rem;
+}
+
+.producto-item {
+    position: relative;
+    background: #2d2e37;
+    padding: 10px;
+    border-radius: 5px;
+    transition: 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.producto-item:hover {
+    background-color: var(--bg-color);
+    border-radius: 5px;
+    box-shadow: 0 8px 32px hsla(0.75, 0.082, 0.165, 1);
+    transition: transform 0.4s ease-in-out;
+}
+
+.producto-item:hover .producto-titulo,
+.producto-item:hover .precio {
+    color: #141414;
+}
+
+.producto-imagen {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 0.5rem;
+}
+
+.producto-titulo {
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 0.8rem;
+}
+
+.producto-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .precio-agregar {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .precio {
+    font-weight: bold;
+    margin: 8px 0;
+  }
+  
+  .agregar-carrito {
+    background-color: #02ac70;
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 8px;
+  }
+  
+/* Sección de Pago con exito */
+.ex-contenedor{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.ex-contenedor img{
+    width: 200px;
+    margin: 2rem 0;
+}
+.ex-contenedor h1{
+    font-size: 2.8rem;
+    margin-bottom: 10px;
+}
+.ex-contenedor p{
+    max-width: 600px;
+    font-size: 0.970rem;
+    text-align: center;
+    margin: 0.5rem 0;
+}
+
+.ex-btn{
+    padding: 12px 20px;
+    border-radius: 2rem;
+    background: var(--text-color);
+    color: var(--bg-color);
+    font-size: 1rem;
+    font-weight: 500 ;
+}
+
+/* Reponsive */
+@media (max-width: 1080px){
+    .nav {
+        padding: 14px 0;
+    }
+    section{
+        padding: 3rem 0 2 rem;
+    }
+    .contenedor{
+        margin: 0 auto;
+        width: 90%;
+    }
+    .tienda{
+        margin-top: 2rem !important;
+    }
+}
+
+@media (max-width: 1080px){
+    .nav {
+        padding: 12px 0;
+    }
+    .logo {
+        font-size: 1rem;
+    }
+    .carrito{
+        width: 320px;
+    }
+}
+
+@media (max-width: 360px){
+    .tienda{
+        margin-top: 1rem !important;
+    }
+    .carrito{
+        width: 100%;
+    }
+}
+
+/* Toastify Styles */
+.Toastify__toast--default {
+    background: var(--main-color);
+    color: #fff;
+  }
+  
+/* SweetAlert Styles */
+.swal-popup-class {
+    background-color: var(--container-color);
+    color: var(--text-color);
+  }
+  
+  .swal-title-class {
+    color: var(--main-color);
+  }
+  
+  .swal-content-class {
+    color: var(--text-color);
+  }
+  
+  .swal-confirm-button-class {
+    background-color: var(--main-color);
+    color: #fff;
+  }
+  
+  .swal-close-button {
+    color: var(--main-color);
+  }
+  
+  /* SweetAlert Styles para Compra Exitosa */
+.swal-popup-class.success {
+    background-color: var(--container-color);
+    color: var(--text-color);
+  }
+  
+  .swal-title-class.success {
+    color: var(--main-color);
+  }
+  
+  .swal-content-class.success {
+    color: var(--text-color);
+  }
+  
+  .swal-confirm-button-class.success {
+    background-color: var(--main-color);
+    color: #fff;
+  }
+  
